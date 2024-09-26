@@ -9,6 +9,7 @@ import avatar7 from "@/assets/avatar-7.png";
 import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 const testimonials = [
   {
@@ -72,8 +73,8 @@ const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
 
-const TestimonialColumn = (props: {testimonials: typeof testimonials}) => (
-  <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+const TestimonialColumn = (props: {className?: string; testimonials: typeof testimonials}) => (
+  <div className={twMerge("flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]", props.className)}>
           {props.testimonials.map(({text, imageSrc, name, username}) => (
             <div className="card">
               <div>{text}</div>
@@ -103,7 +104,8 @@ export const Testimonials = () => {
         <p className="section-description mt-5">From intuitive design to powerful features, our app has become an essential tool for users around the world.</p>
         <div className="flex justify-center gap-6">
         <TestimonialColumn testimonials={firstColumn} />
-        <TestimonialColumn testimonials={secondColumn} />
+        <TestimonialColumn testimonials={secondColumn} className="hidden md:flex" />
+        <TestimonialColumn testimonials={thirdColumn} className="hidden lg:flex" />
         </div>
       </div>
     </section>
