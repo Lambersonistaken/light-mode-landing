@@ -66,5 +66,7 @@ const testimonials = [
 ];
 
 export const Testimonials = () => {
-  return null;
+  return (
+    <div>Testimonials</div>
+  );
 };
