@@ -1,3 +1,5 @@
 export const CallToAction = () => {
-  return null;
+  return (
+    <div>Call to action</div>
+  );
 };
