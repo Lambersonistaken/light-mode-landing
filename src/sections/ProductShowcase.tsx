@@ -1,7 +1,9 @@
+"use client";
 import ProductImage from "@/assets/product-image.png"
 import Image from "next/image";
 import pyramidImage from "@/assets/pyramid.png"
 import tubeImage from "@/assets/tube.png"
+import { motion } from "framer-motion";
 
 export const ProductShowcase = () => {
   return (
