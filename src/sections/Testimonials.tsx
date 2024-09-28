@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-key */
+"use client";
 import avatar1 from "@/assets/avatar-1.png";
 import avatar2 from "@/assets/avatar-2.png";
 import avatar3 from "@/assets/avatar-3.png";
@@ -10,6 +11,8 @@ import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
+import {motion} from "framer-motion";
+import React from "react";
 
 const testimonials = [
   {
@@ -73,9 +76,20 @@ const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
 
-const TestimonialColumn = (props: {className?: string; testimonials: typeof testimonials}) => (
-  <div className={twMerge("flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]", props.className)}>
-          {props.testimonials.map(({text, imageSrc, name, username}) => (
+const TestimonialColumn = (props: {className?: string; testimonials: typeof testimonials; duration?: number}) => (
+  <div className={props.className}>
+  <motion.div animate={{
+    translateY: "-50%",
+  }} transition={{
+    repeat: Infinity,
+    duration: props.duration || 10,
+    repeatType: "loop",
+    ease: "linear",
+
+  }} className="flex flex-col gap-6 pb-6">
+          {[...new Array(2)].fill(0).map((_, index) => (
+            <React.Fragment key={index}>
+            {props.testimonials.map(({text, imageSrc, name, username}) => (
             <div className="card">
               <div>{text}</div>
               <div className="flex flex-row items-center gap-2 mt-5">
@@ -88,6 +102,10 @@ const TestimonialColumn = (props: {className?: string; testimonials: typeof test
               
             </div>
             ))}
+            </React.Fragment>
+            ))  
+          }
+          </motion.div>
         </div>
 
 )
@@ -104,10 +122,10 @@ export const Testimonials = () => {
         <h2 className="section-title mt-5">What our users say</h2>
         <p className="section-description mt-5">From intuitive design to powerful features, our app has become an essential tool for users around the world.</p>
         </div>
-        <div className="flex justify-center gap-6">
-        <TestimonialColumn testimonials={firstColumn} />
-        <TestimonialColumn testimonials={secondColumn} className="hidden md:flex" />
-        <TestimonialColumn testimonials={thirdColumn} className="hidden lg:flex" />
+        <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] mt-10 max-h-[738px] overflow-hidden ">
+        <TestimonialColumn testimonials={firstColumn} duration={15} />
+        <TestimonialColumn testimonials={secondColumn} duration={19} className="hidden md:block" />
+        <TestimonialColumn testimonials={thirdColumn} duration={17} className="hidden lg:block" />
         </div>
       </div>
     </section>
