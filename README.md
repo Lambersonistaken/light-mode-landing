@@ -1,5 +1,6 @@
 # Landing Page with Next.js, TailwindCSS, Framer Motion, and TypeScript
 Demo Link : https://light-mode-landing.vercel.app/
+
 This project is a beautifully crafted landing page built with cutting-edge web technologies, offering an engaging and visually appealing user experience. It leverages the power of **Next.js** for server-side rendering, **TailwindCSS** for responsive styling, **Framer Motion** for smooth animations, and **TypeScript** for robust and type-safe code.
 
 ## Features
