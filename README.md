@@ -25,7 +25,10 @@ This project is a beautifully crafted landing page built with cutting-edge web t
 
 ## Video Walkthrough
 
-[![Video Walkthrough](./thumbnail.png)](https://your-video-link.com)
+
+https://github.com/user-attachments/assets/d28fc2a7-122d-4700-bd59-6a8273b85645
+
+
 
 ## Technologies Used
 
