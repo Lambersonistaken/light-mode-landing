@@ -57,7 +57,7 @@ To run this project locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/light-mode-landing.git
+   git clone https://github.com/Lambersonistaken/light-mode-landing.git
    ```
 
 2. **Navigate to the project directory**:
